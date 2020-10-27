@@ -9,7 +9,7 @@ const config = {
         index: "./src/index.tsx"
     },
 	output: {
-		path: path.resolve(process.cwd(), "dist"),
+		path: path.resolve(process.cwd(), "docs"),
 		filename: "[name].js",
 	},
 	module: {
