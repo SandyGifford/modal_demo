@@ -1,0 +1,110 @@
+.Card {
+    $width: 500px;
+    background: white;
+    border-radius: 30px;
+
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%) scale(0.5);
+    width: $width;
+    min-height: 300px;
+    box-shadow: 0px 4px 4px rgba(black, 0.1);
+    transition: opacity 0.5s, left 0.5s, transform 0.5s;
+
+    padding: 50px;
+    opacity: 0;
+
+    display: flex;
+    justify-content: center;
+
+    &__back {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        cursor: pointer;
+        color: #999;
+        transition: color 0.5s, background 0.5s;
+        font-size: 50px;
+        border-radius: 20px;
+        padding: 10px;
+        height: 1em;
+        width: 1em;
+        line-height: 0.8;
+        text-align: center;
+
+        &:hover {
+            color: #666;
+            background: #eee;
+        }
+    }
+
+    &__children,
+    &__value {
+        flex: 0 0 50%;
+        opacity: 0;
+        transition: opacity 1s;
+
+        &--current {
+            opacity: 1;
+        }
+    }
+
+    &__value {
+        text-align: right;
+        margin-right: 5px;
+        padding: 5px 0;
+    }
+
+    &__children {
+        margin-left: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &__child {
+            cursor: pointer;
+            flex: 0 0 auto;
+            padding: 5px 10px;
+            background: #EEE;
+            border: 1px dotted #DDD;
+            color: #999;
+            border-radius: 4px;
+            margin-bottom: 5px;
+
+            transition: color 0.25s, background 0.25s;
+
+            &:hover {
+                color: #666;
+                background: #999;
+            }
+        }
+    }
+
+    &--after {
+        left: -200px;
+        transform: translate(-100%, -50%);
+    }
+
+    &--prev {
+        opacity: 0.25;
+        left: 200px;
+        transform: translate(-100%, -50%) scale(0.75);
+    }
+
+    &--current {
+        opacity: 1;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &--next {
+        opacity: 0.25;
+        left: 100%;
+        transform: translate(-200px, -50%) scale(0.75);
+    }
+
+    &--before {
+        left: 100%;
+        transform: translate(200px, -50%);
+    }
+}

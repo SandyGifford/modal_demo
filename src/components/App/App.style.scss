@@ -1,0 +1,56 @@
+.App {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #556;
+    font-family: sans-serif;
+
+    &__breadcrumbs {
+        padding: 10px;
+        color: white;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+
+        &__crumb {
+            flex: 0 0 auto;
+            white-space: nowrap;
+            cursor: pointer;
+            text-decoration: underline;
+            position: relative;
+
+            &--hasMultiple {
+                &::after {
+                    content: "⋯";
+                    display: block;
+                    position: absolute;
+                    left: 50%;
+                    top: 10px;
+                    font-size: 15px;
+                    transform: translateX(-50%);
+                }
+            }
+
+            &--isLast {
+                text-decoration: none;
+                cursor: default;
+                &::after {
+                    content: none;
+                }
+            }
+        }
+
+        &__separator {
+            line-height: 10px;
+            flex: 0 0 auto;
+            font-size: 20px;
+            margin: 0 15px;
+
+            &::after {
+                content: "•";
+            }
+        }
+    }
+}

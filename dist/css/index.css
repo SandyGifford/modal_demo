@@ -1,0 +1,142 @@
+@charset "UTF-8";
+.App {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #556;
+  font-family: sans-serif;
+}
+.App__breadcrumbs {
+  padding: 10px;
+  color: white;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+}
+.App__breadcrumbs__crumb {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: underline;
+  position: relative;
+}
+.App__breadcrumbs__crumb--hasMultiple::after {
+  content: "⋯";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  font-size: 15px;
+  transform: translateX(-50%);
+}
+.App__breadcrumbs__crumb--isLast {
+  text-decoration: none;
+  cursor: default;
+}
+.App__breadcrumbs__crumb--isLast::after {
+  content: none;
+}
+.App__breadcrumbs__separator {
+  line-height: 10px;
+  flex: 0 0 auto;
+  font-size: 20px;
+  margin: 0 15px;
+}
+.App__breadcrumbs__separator::after {
+  content: "•";
+}
+.Card {
+  background: white;
+  border-radius: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%) scale(0.5);
+  width: 500px;
+  min-height: 300px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.5s, left 0.5s, transform 0.5s;
+  padding: 50px;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+}
+.Card__back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.5s, background 0.5s;
+  font-size: 50px;
+  border-radius: 20px;
+  padding: 10px;
+  height: 1em;
+  width: 1em;
+  line-height: 0.8;
+  text-align: center;
+}
+.Card__back:hover {
+  color: #666;
+  background: #eee;
+}
+.Card__children, .Card__value {
+  flex: 0 0 50%;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.Card__children--current, .Card__value--current {
+  opacity: 1;
+}
+.Card__value {
+  text-align: right;
+  margin-right: 5px;
+  padding: 5px 0;
+}
+.Card__children {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.Card__children__child {
+  cursor: pointer;
+  flex: 0 0 auto;
+  padding: 5px 10px;
+  background: #EEE;
+  border: 1px dotted #DDD;
+  color: #999;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: color 0.25s, background 0.25s;
+}
+.Card__children__child:hover {
+  color: #666;
+  background: #999;
+}
+.Card--after {
+  left: -200px;
+  transform: translate(-100%, -50%);
+}
+.Card--prev {
+  opacity: 0.25;
+  left: 200px;
+  transform: translate(-100%, -50%) scale(0.75);
+}
+.Card--current {
+  opacity: 1;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+.Card--next {
+  opacity: 0.25;
+  left: 100%;
+  transform: translate(-200px, -50%) scale(0.75);
+}
+.Card--before {
+  left: 100%;
+  transform: translate(200px, -50%);
+}
+
+/*# sourceMappingURL=index.css.map*/
