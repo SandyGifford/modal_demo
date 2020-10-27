@@ -10,7 +10,7 @@ const config = {
     },
 	output: {
 		path: path.resolve(process.cwd(), "docs"),
-		filename: "[name].js",
+		filename: "js/[name].js",
 	},
 	module: {
 		rules: [
